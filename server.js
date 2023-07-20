@@ -5,9 +5,12 @@ const express = require('express');
 const recipeRoutes = require('./routes/recipes');
 const mongoose = require('mongoose')
 const upload = require('./routes/upload')
+const cors = require('cors')
 
 // express app
 const app = express(); 
+
+app.use(cors())
 
 app.use('/assets' ,express.static(__dirname + '/images'))
 app.use(express.json());

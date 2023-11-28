@@ -3,6 +3,7 @@ require('dotenv').config();
 
 const express = require('express');
 const recipeRoutes = require('./routes/recipes');
+const numberRoutes = require('./routes/numbers');
 const mongoose = require('mongoose')
 const upload = require('./routes/upload')
 const cors = require('cors')
@@ -21,6 +22,8 @@ app.use((req, res, next) => {
 })
 
 // Routes
+app.use('/api/numbers', numberRoutes);
+
 app.use('/api/recipes', recipeRoutes);
 app.use('/api/images', upload)
 

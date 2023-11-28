@@ -4,11 +4,14 @@ const Number = require('../models/numberModel')
 const createNumber = async (req, res) => {
     const newNumber = req.body
 
+    console.log(newNumber)
+
     try {
         const number = await Number.create(newNumber)
         res.status(200).json(number)
     } catch (error) {
-        res.status(400).json({error: error.message})
+        res.status(400).json({error: error.message,
+        number: newNumber})
     }
 }
 
